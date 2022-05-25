@@ -33,8 +33,8 @@ describe('Testes da função HandlerElephants', () => {
   });
 
   it('retorna um array com a relação de dias em que é possível visitar os elefantes', () => {
-    const expected = [ 'Friday', 'Saturday', 'Sunday', 'Tuesday' ];
+    const expected = ['Friday', 'Saturday', 'Sunday', 'Tuesday'];
     const actual = handlerElephants('availability');
     expect(expected).toEqual(actual);
-  })
+  });
 });
