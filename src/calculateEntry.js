@@ -29,4 +29,3 @@ function calculateEntry(entrants) {
 }
 
 module.exports = { calculateEntry, countEntrants };
-console.log(calculateEntry([{ name:  'Lara Carvalho', age:  5 }, { name:  'Carlos Nogueira', age:  50 }]))
