@@ -1,8 +1,7 @@
 const data = require('../data/zoo_data');
 
 const localizaColaborador = (idColaborador) =>
-  data.employees.find((elem) => elem.id === idColaborador
-);
+  data.employees.find((elem) => elem.id === idColaborador);
 
 const primeiroAnimalColaborador = (idPrimeiro) => localizaColaborador(idPrimeiro).responsibleFor[0];
 
@@ -14,13 +13,13 @@ const idadeMaior = (idMaior) => {
     if (elem.age > aux) {
       aux = elem.age;
     }
-  })
-  return specieSelecionada.find((elem) => elem.age === aux)
-}
+  });
+  return specieSelecionada.find((elem) => elem.age === aux);
+};
 
 function getOldestFromFirstSpecies(id) {
-  const objRetornado = idadeMaior(primeiroAnimalColaborador(id))
-  return [objRetornado.name, objRetornado.sex, objRetornado.age]
+  const objRetornado = idadeMaior(primeiroAnimalColaborador(id));
+  return [objRetornado.name, objRetornado.sex, objRetornado.age];
 }
 
 module.exports = getOldestFromFirstSpecies;
