@@ -12,25 +12,39 @@ const verificaAnimais = (dia) => {
 // constante que guarda objeto com as chaves dos dias semana com seus respectivos horarios e animais em exibição
 
 const todosAnimais = {
-  Tuesday: { officeHour: `Open from ${data.hours.Tuesday.open}am until ${data.hours.Tuesday.close}pm`,
-  exhibition: verificaAnimais('Tuesday') },
+  Tuesday: { 
+    officeHour: `Open from ${data.hours.Tuesday.open}am until ${data.hours.Tuesday.close}pm`,
+    exhibition: verificaAnimais('Tuesday')
+  },
 
-  Wednesday: { officeHour: `Open from ${data.hours.Wednesday.open}am until ${data.hours.Wednesday.close}pm`,
-  exhibition: verificaAnimais('Wednesday') },
+  Wednesday: { 
+    officeHour: `Open from ${data.hours.Wednesday.open}am until ${data.hours.Wednesday.close}pm`,
+    exhibition: verificaAnimais('Wednesday')
+  },
 
-  Thursday: { officeHour: `Open from ${data.hours.Thursday.open}am until ${data.hours.Thursday.close}pm`,
-  exhibition: verificaAnimais('Thursday') },
+  Thursday: { 
+    officeHour: `Open from ${data.hours.Thursday.open}am until ${data.hours.Thursday.close}pm`,
+    exhibition: verificaAnimais('Thursday')
+  },
 
-  Friday: { officeHour: `Open from ${data.hours.Friday.open}am until ${data.hours.Friday.close}pm`,
-  exhibition: verificaAnimais('Friday') },
+  Friday: { 
+    officeHour: `Open from ${data.hours.Friday.open}am until ${data.hours.Friday.close}pm`,
+    exhibition: verificaAnimais('Friday')
+  },
 
-  Saturday: { officeHour: `Open from ${data.hours.Saturday.open}am until ${data.hours.Saturday.close}pm`,
-  exhibition: verificaAnimais('Saturday') },
+  Saturday: { 
+    officeHour: `Open from ${data.hours.Saturday.open}am until ${data.hours.Saturday.close}pm`,
+    exhibition: verificaAnimais('Saturday')
+  },
 
-  Sunday: { officeHour: `Open from ${data.hours.Sunday.open}am until ${data.hours.Sunday.close}pm`,
-  exhibition: verificaAnimais('Sunday') },
+  Sunday: { 
+    officeHour: `Open from ${data.hours.Sunday.open}am until ${data.hours.Sunday.close}pm`,
+    exhibition: verificaAnimais('Sunday')
+  },
 
-  Monday: { officeHour: 'CLOSED', exhibition: 'The zoo will be closed!' },
+  Monday: { 
+    officeHour: 'CLOSED', exhibition: 'The zoo will be closed!'
+  },
 };
 
 function auxFunction(scheduleTarget1) {
@@ -53,9 +67,8 @@ function auxFunction(scheduleTarget1) {
 }
 
 function getSchedule(scheduleTarget) {
-  
   if (scheduleTarget) {
-    return auxFunction(scheduleTarget)
+    return auxFunction(scheduleTarget);
   }
   return todosAnimais;
 }
