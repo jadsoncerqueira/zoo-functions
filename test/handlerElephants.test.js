@@ -9,7 +9,7 @@ describe('Testes da função HandlerElephants', () => {
 
   it('retornar um array de nomes que possui o nome Jefferson', () => {
     const expected = true;
-    const name = 'Jefferson'
+    const name = 'Jefferson';
     const actual = handlerElephants('names').some((elem) => elem === name);
     expect(actual).toBe(expected);
   });
