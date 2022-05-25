@@ -9,14 +9,13 @@ function countAnimals(animal) {
       return animalRetornado.length;
     }
     return animalRetornado.residents.length;
-  } 
+  }
   data.species.forEach((element) => {
     const nome = element.name;
     const totalSpecies = element.residents;
     relatorio[nome] = totalSpecies.length;
   });
   return relatorio;
-  
 }
 
 module.exports = countAnimals;
