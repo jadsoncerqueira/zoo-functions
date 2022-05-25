@@ -35,16 +35,8 @@ const todosAnimais = {
 
 function getSchedule(scheduleTarget) {
   const diasSemana = Object.keys(data.hours);
-
-  // verifica se foi passado algum parametro caso contrario retorna a constante 'todosAnimais'
-
   if (scheduleTarget) {
-    // variavel que guarda todos os dias disponivel para visita caso o parametro passado seja um animal
-
     let diasSelecionado;
-
-    // condição que verifica se o parametro passado é um dia da semana ou não
-
     if (diasSemana.some((elem) => elem === scheduleTarget)) {
       const dia = {};
       dia[scheduleTarget] = todosAnimais[scheduleTarget];
