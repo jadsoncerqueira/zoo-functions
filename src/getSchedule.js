@@ -33,24 +33,29 @@ const todosAnimais = {
   Monday: { officeHour: 'CLOSED', exhibition: 'The zoo will be closed!' },
 };
 
-function getSchedule(scheduleTarget) {
+function auxFunction(scheduleTarget1) {
   const diasSemana = Object.keys(data.hours);
+  let diasSelecionado;
+  if (diasSemana.some((elem) => elem === scheduleTarget1)) {
+    const dia = {};
+    dia[scheduleTarget1] = todosAnimais[scheduleTarget1];
+    return dia;
+  }
+  data.species.forEach((elem) => {
+    if (elem.name === scheduleTarget1) {
+      diasSelecionado = elem.availability;
+    }
+  });
+  if (diasSelecionado === undefined) {
+    return todosAnimais;
+  }
+  return diasSelecionado;
+}
+
+function getSchedule(scheduleTarget) {
+  
   if (scheduleTarget) {
-    let diasSelecionado;
-    if (diasSemana.some((elem) => elem === scheduleTarget)) {
-      const dia = {};
-      dia[scheduleTarget] = todosAnimais[scheduleTarget];
-      return dia;
-    }
-    data.species.forEach((elem) => {
-      if (elem.name === scheduleTarget) {
-        diasSelecionado = elem.availability;
-      }
-    });
-    if (diasSelecionado === undefined) {
-      return todosAnimais;
-    }
-    return diasSelecionado;
+    return auxFunction(scheduleTarget)
   }
   return todosAnimais;
 }
