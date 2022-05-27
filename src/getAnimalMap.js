@@ -101,6 +101,7 @@ const verificaEntrada = (obj) => {
 // função principal | principal
 function getAnimalMap(options) {
   let resultado;
+  
   if (options) {
     resultado = verificaEntrada(options);
   } else {
