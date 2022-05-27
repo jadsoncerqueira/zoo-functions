@@ -37,4 +37,9 @@ describe('Testes da função HandlerElephants', () => {
     const actual = handlerElephants('availability');
     expect(expected).toEqual(actual);
   });
+  it('Não passando argumentos a função deve retornar', () => {
+    const expected = undefined;
+    const actual = handlerElephants();
+    expect(expected).toEqual(actual);
+  });
 });
