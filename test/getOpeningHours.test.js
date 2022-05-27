@@ -34,26 +34,50 @@ describe('Testes da função getOpeningHours', () => {
   });
 
   it('Para os argumentos Thu e 09:00-AM deve lançar uma exceção com a mensagem: "The day must be valid. Example: Monday"', () => {
-    const actual = getOpeningHours('Thu', '09:00-AM');
-    const expected = 'The day must be valid. Example: Monday';
-    expect(actual).toEqual(expected);
+    try {
+      getOpeningHours('Thu', '09:00-AM');
+    } catch (e) {
+      expect(e.message).toBe('The day must be valid. Example: Monday');
+    }
   });
 
   it('Para os argumentos Friday e 09:00-ZM deve lançar uma exceção com a mensagem: "The abbreviation must be \'AM\' or \'PM\'"', () => {
-    const actual = getOpeningHours('Friday', '09:00-ZM');
-    const expected = 'The abbreviation must be \'AM\' or \'PM\'';
-    expect(actual).toEqual(expected);
+    try {
+      getOpeningHours('Friday', '09:00-ZM');
+    } catch (e) {
+      expect(e.message).toBe('The abbreviation must be \'AM\' or \'PM\'');
+    }
   });
 
   it('Para os argumentos Saturday e C9:00-AM deve lançar uma exceção com a mensagem: "The hour should represent a number"', () => {
-    const actual = getOpeningHours('Saturday', 'C9:00-AM');
-    const expected = 'The hour should represent a number';
-    expect(actual).toEqual(expected);
+    try {
+      getOpeningHours('Saturday', 'C9:00-AM');
+    } catch (e) {
+      expect(e.message).toBe('The hour should represent a number');
+    }
   });
 
   it('Para os argumentos Sunday e 09:c0-AM deve lançar uma exceção com a mensagem: "The minutes should represent a number"', () => {
-    const actual = getOpeningHours('Sunday', '09:c0-AM');
-    const expected = 'The minutes should represent a number';
-    expect(actual).toEqual(expected);
+    try {
+      getOpeningHours('Sunday', '09:c0-AM');
+    } catch (e) {
+      expect(e.message).toBe('The minutes should represent a number');
+    }
+  });
+
+  it('Para os argumentos Monday e 13:00-AM deve lançar uma exceção com a mensagem: "The hour must be between 0 and 12"', () => {
+    try {
+      getOpeningHours('Monday', '13:00-AM');
+    } catch (e) {
+      expect(e.message).toBe('The hour must be between 0 and 12');
+    }
+  });
+
+  it('Para os argumentos Tuesday e 09:60-AM deve lançar uma exceção com a mensagem: "The minutes must be between 0 and 59"', () => {
+    try {
+      getOpeningHours('Tuesday', '09:60-AM');
+    } catch (e) {
+      expect(e.message).toBe('The minutes must be between 0 and 59');
+    }
   });
 });
