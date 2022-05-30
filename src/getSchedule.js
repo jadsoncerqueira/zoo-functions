@@ -11,41 +11,23 @@ const verificaAnimais = (dia) => {
 
 // constante que guarda objeto com as chaves dos dias semana com seus respectivos horarios e animais em exibição
 
-const todosAnimais = {
-  Tuesday: {
-    officeHour: `Open from ${data.hours.Tuesday.open}am until ${data.hours.Tuesday.close}pm`,
-    exhibition: verificaAnimais('Tuesday'),
-  },
+const todosAnimais = {};
 
-  Wednesday: {
-    officeHour: `Open from ${data.hours.Wednesday.open}am until ${data.hours.Wednesday.close}pm`,
-    exhibition: verificaAnimais('Wednesday'),
-  },
+const horarios = Object.keys(data.hours);
 
-  Thursday: {
-    officeHour: `Open from ${data.hours.Thursday.open}am until ${data.hours.Thursday.close}pm`,
-    exhibition: verificaAnimais('Thursday'),
-  },
+const listaAux = horarios.map((elem) => {
+  if (elem === 'Monday') {
+    return { officeHour: 'CLOSED', exhibition: 'The zoo will be closed!' };
+  }
+  return {
+    officeHour: `Open from ${data.hours[elem].open}am until ${data.hours[elem].close}pm`,
+    exhibition: verificaAnimais(elem),
+  };
+});
 
-  Friday: {
-    officeHour: `Open from ${data.hours.Friday.open}am until ${data.hours.Friday.close}pm`,
-    exhibition: verificaAnimais('Friday'),
-  },
-
-  Saturday: {
-    officeHour: `Open from ${data.hours.Saturday.open}am until ${data.hours.Saturday.close}pm`,
-    exhibition: verificaAnimais('Saturday'),
-  },
-
-  Sunday: {
-    officeHour: `Open from ${data.hours.Sunday.open}am until ${data.hours.Sunday.close}pm`,
-    exhibition: verificaAnimais('Sunday'),
-  },
-
-  Monday: {
-    officeHour: 'CLOSED', exhibition: 'The zoo will be closed!',
-  },
-};
+horarios.forEach((elem, index) => {
+  todosAnimais[elem] = listaAux[index];
+});
 
 function auxFunction(scheduleTarget1) {
   const diasSemana = Object.keys(data.hours);
